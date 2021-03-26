@@ -1,6 +1,6 @@
 
-bool _give_me_a_good_name(double value, double nextValue, double maxDelta);
+bool isSensorReadingsHaveSuddenJumps_b(double value, double nextValue, double maxDelta);
 
-bool validateSOCreadings(double* values, int numOfValues);
+bool validateSOCreadings_b(double* values, int numOfValues);
 
-bool validateCurrentreadings(double* values, int numOfValues);
+bool validateCurrentreadings_b(double* values, int numOfValues);
