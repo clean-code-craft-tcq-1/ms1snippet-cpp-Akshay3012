@@ -9,21 +9,19 @@ bool isSensorReadingsHaveSuddenJumps_b(double currentValue, double nextValue, do
 
 bool validateSOCreadings_b(double* values, int numOfReadings) 
 {
-  if (numOfReadings == 0)
-  {
-    return false;
-  }
-  else
+  bool validationStatus = false;
+  if (numOfReadings != 0)
   {
     for(int SOCReadingIndex = 0; SOCReadingIndex < (numOfReadings -1); SOCReadingIndex++) 
     {
       if(!isSensorReadingsHaveSuddenJumps_b(values[SOCReadingIndex], values[SOCReadingIndex + 1], 0.05)) 
       {
-        return false;
+        validationStatus = false;
       }
     }
+    validationStatus = true;
   }
-  return true;
+  return validationStatus;
 }
 
 bool validateCurrentreadings_b(double* values, int numOfReadings) 
