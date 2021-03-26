@@ -9,11 +9,18 @@ bool isSensorReadingsHaveSuddenJumps_b(double currentValue, double nextValue, do
 
 bool validateSOCreadings_b(double* values, int numOfReadings) 
 {
-  for(int SOCReadingIndex = 0; SOCReadingIndex < (numOfReadings -1); SOCReadingIndex++) 
+  if (numOfReadings == 0)
   {
-    if(!isSensorReadingsHaveSuddenJumps_b(values[SOCReadingIndex], values[SOCReadingIndex + 1], 0.05)) 
+    return false;
+  }
+  else
+  {
+    for(int SOCReadingIndex = 0; SOCReadingIndex < (numOfReadings -1); SOCReadingIndex++) 
     {
-      return false;
+      if(!isSensorReadingsHaveSuddenJumps_b(values[SOCReadingIndex], values[SOCReadingIndex + 1], 0.05)) 
+      {
+        return false;
+      }
     }
   }
   return true;
@@ -21,11 +28,18 @@ bool validateSOCreadings_b(double* values, int numOfReadings)
 
 bool validateCurrentreadings_b(double* values, int numOfReadings) 
 {
-  for(int CurrentReadingIndex = 0; CurrentReadingIndex < (numOfReadings-1); CurrentReadingIndex++) 
+  if (numOfReadings == 0)
   {
-    if(!isSensorReadingsHaveSuddenJumps_b(values[CurrentReadingIndex], values[CurrentReadingIndex + 1], 0.1)) 
+    return false;
+  }
+  else
+  {
+    for(int CurrentReadingIndex = 0; CurrentReadingIndex < (numOfReadings-1); CurrentReadingIndex++) 
     {
-      return false;
+      if(!isSensorReadingsHaveSuddenJumps_b(values[CurrentReadingIndex], values[CurrentReadingIndex + 1], 0.1)) 
+      {
+        return false;
+      }
     }
   }
   return true;
