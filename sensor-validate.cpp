@@ -7,6 +7,18 @@ bool isSensorReadingsHaveSuddenJumps_b(double currentValue, double nextValue, do
   return true;
 }
 
+bool getReadingStatus_b(double* values, int numOfReadings, double maxDelta)
+{
+   for(int ReadingIndex = 0; ReadingIndex < (numOfReadings -1); ReadingIndex++) 
+    {
+      if(!isSensorReadingsHaveSuddenJumps_b(values[ReadingIndex], values[ReadingIndex + 1], maxDelta)) 
+      {
+        return false;
+      }
+    }
+  return true;
+}
+
 bool validateSOCreadings_b(double* values, int numOfReadings) 
 {
   if (numOfReadings == 0)
@@ -15,15 +27,8 @@ bool validateSOCreadings_b(double* values, int numOfReadings)
   }
   else
   {
-    for(int SOCReadingIndex = 0; SOCReadingIndex < (numOfReadings -1); SOCReadingIndex++) 
-    {
-      if(!isSensorReadingsHaveSuddenJumps_b(values[SOCReadingIndex], values[SOCReadingIndex + 1], 0.05)) 
-      {
-        return false;
-      }
-    }
+    return getReadingStatus_b(values, numOfReadings, 0.05);
   }
-  return true;
 }
 
 bool validateCurrentreadings_b(double* values, int numOfReadings) 
@@ -34,13 +39,6 @@ bool validateCurrentreadings_b(double* values, int numOfReadings)
   }
   else
   {
-    for(int CurrentReadingIndex = 0; CurrentReadingIndex < (numOfReadings-1); CurrentReadingIndex++) 
-    {
-      if(!isSensorReadingsHaveSuddenJumps_b(values[CurrentReadingIndex], values[CurrentReadingIndex + 1], 0.1)) 
-      {
-        return false;
-      }
-    }
+    return getReadingStatus_b(values, numOfReadings, 0.1);
   }
-  return true;
 }
