@@ -28,7 +28,7 @@ TEST_CASE("reports error when current jumps abruptly") {
 }
 
 TEST_CASE("No error when current doesn't jump abruptly") {
-  double currentReadings[] = {0.03, 0.1, 0.15, 0.24};
+  double currentReadings[] = {0.03, 0.04, 0.05, 0.06};
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
   REQUIRE(validateSOCreadings_b(currentReadings, numOfCurReadings) == true);
 }
