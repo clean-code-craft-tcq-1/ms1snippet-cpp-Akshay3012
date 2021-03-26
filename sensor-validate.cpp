@@ -19,8 +19,8 @@ bool validateSOCreadings(double* values, int numOfValues) {
 
 bool validateCurrentreadings(double* values, int numOfValues) {
   int lastButOneIndex = numOfValues - 1;
-  for(int i = 0; i < lastButOneIndex; i++) {
-    if(!_give_me_a_good_name(values[i], values[i + 1], 0.1)) {
+  for(int j = 0; j < lastButOneIndex; j++) {
+    if(!_give_me_a_good_name(values[j], values[j + 1], 0.1)) {
       return false;
     }
   }
