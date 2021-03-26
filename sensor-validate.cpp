@@ -1,7 +1,7 @@
 #include "sensor-validate.h"
 
 bool isSensorReadingsHaveSuddenJumps_b(double currentValue, double nextValue, double maxDelta) {
-  if(nextValue - currentValue > maxDelta) {
+  if((nextValue - currentValue) > maxDelta) {
     return false;
   }
   return true;
