@@ -12,7 +12,7 @@ TEST_CASE("reports error when soc jumps abruptly") {
 TEST_CASE("reports error when there is no reading of soc") { 
   double socReadings_empty[] = {};
   int numOfSocReadings_empty = sizeof(socReadings_empty) / sizeof(socReadings_empty[0]);
-  REQUIRE(validateSOCreadings(socReadings_empty, numOfSocReadings_empty) == false);
+  REQUIRE(validateSOCreadings_b(socReadings_empty, numOfSocReadings_empty) == false);
 }
 
 TEST_CASE("reports error when current jumps abruptly") {
@@ -24,5 +24,5 @@ TEST_CASE("reports error when current jumps abruptly") {
 TEST_CASE("reports error when there is no reading of current") { 
   double currentReadings_empty[] = {};
   int numOfCurReadings_empty = sizeof(currentReadings_empty) / sizeof(currentReadings_empty[0]);
-  REQUIRE(validateSOCreadings(currentReadings_empty, numOfCurReadings_empty) == false);
+  REQUIRE(validateSOCreadings_b(currentReadings_empty, numOfCurReadings_empty) == false);
 }
