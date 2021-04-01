@@ -19,7 +19,7 @@ bool getReadingStatus_b(double* values, int numOfReadings, double maxDelta)
   return true;
 }
 
-bool validateSOCreadings_b(double* values, int numOfReadings) 
+bool validateSensorReadings_b(double* values, int numOfReadings, double maxDelta) 
 {
   if (numOfReadings == 0)
   {
@@ -27,18 +27,6 @@ bool validateSOCreadings_b(double* values, int numOfReadings)
   }
   else
   {
-    return getReadingStatus_b(values, numOfReadings, 0.05);
-  }
-}
-
-bool validateCurrentreadings_b(double* values, int numOfReadings) 
-{
-  if (numOfReadings == 0)
-  {
-    return false;
-  }
-  else
-  {
-    return getReadingStatus_b(values, numOfReadings, 0.1);
+    return getReadingStatus_b(values, numOfReadings, maxDelta);
   }
 }
