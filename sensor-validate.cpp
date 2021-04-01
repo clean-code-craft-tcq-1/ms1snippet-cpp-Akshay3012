@@ -2,16 +2,16 @@
 
 bool isSensorReadingsHaveSuddenJumps_b(double currentValue, double nextValue, double maxDelta) {
   if((nextValue - currentValue) > maxDelta) {
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 bool getReadingStatus_b(double* values, int numOfReadings, double maxDelta)
 {
    for(int ReadingIndex = 0; ReadingIndex < (numOfReadings -1); ReadingIndex++) 
     {
-      if(!isSensorReadingsHaveSuddenJumps_b(values[ReadingIndex], values[ReadingIndex + 1], maxDelta)) 
+      if(isSensorReadingsHaveSuddenJumps_b(values[ReadingIndex], values[ReadingIndex + 1], maxDelta)) 
       {
         return false;
       }
