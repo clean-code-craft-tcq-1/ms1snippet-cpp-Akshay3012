@@ -3,6 +3,5 @@ bool isSensorReadingsHaveSuddenJumps_b(double value, double nextValue, double ma
 
 bool getReadingStatus_b(double* values, int numOfReadings, double maxDelta);
 
-bool validateSOCreadings_b(double* values, int numOfValues);
+bool validateSensorReadings_b(double* values, int numOfValues, double maxDelta);
 
-bool validateCurrentreadings_b(double* values, int numOfValues);
